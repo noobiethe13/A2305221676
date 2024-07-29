@@ -40,21 +40,24 @@ const ProductList = ({ products }) => {
       );
     }
 
+    sortProducts(filtered);
+  };
+
+  const sortProducts = (productsToSort) => {
     switch (sortOption) {
       case "price":
-        filtered.sort((a, b) => a.price - b.price);
+        productsToSort.sort((a, b) => a.price - b.price);
         break;
       case "rating":
-        filtered.sort((a, b) => b.rating - a.rating);
+        productsToSort.sort((a, b) => b.rating - a.rating);
         break;
       case "discount":
-        filtered.sort((a, b) => b.discount - a.discount);
+        productsToSort.sort((a, b) => b.discount - a.discount);
         break;
       default:
         break;
     }
-
-    setFilteredProducts(filtered);
+    setFilteredProducts(productsToSort);
   };
 
   return (
